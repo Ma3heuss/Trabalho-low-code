@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main id="app">
+    <!-- Tela Inicial -->
+    <section id="home" class="screen active">
+      <div class="card">
+        <h1 class="title">Calculadora de IMC</h1>
+        <p class="lead">Calcule seu Índice de Massa Corporal (IMC) de forma rápida e veja a classificação correspondente.</p>
+        <button id="startBtn" class="btn primary">Começar</button>
+      </div>
+      <footer class="footer-note">Feito com atenção à saúde • Interface simples e responsiva</footer>
+    </section>
+
+    <!-- Tela de Cálculo -->
+    <section id="calculator" class="screen">
+      <div class="card">
+        <div class="header-row">
+          <button id="backBtn" class="btn ghost" aria-label="Voltar">‹ Voltar</button>
+          <h2 class="title small">Calculadora de IMC</h2>
+        </div>
+
+        <form id="imcForm" novalidate>
+          <label class="field">
+            <span>Peso (kg)</span>
+            <input type="number" id="peso" inputmode="decimal" step="0.1" min="0" placeholder="Ex.: 70.5" required>
+          </label>
+
+          <label class="field">
+            <span>Altura (m)</span>
+            <input type="number" id="altura" inputmode="decimal" step="0.01" min="0" placeholder="Ex.: 1.75" required>
+          </label>
+
+          <div class="actions">
+            <button type="submit" class="btn primary">Calcular</button>
+            <button type="button" id="resetBtn" class="btn ghost">Limpar</button>
+          </div>
+        </form>
+
+        <div id="result" class="result" aria-live="polite" hidden>
+          <p class="result-value" id="imcValue"></p>
+          <p class="result-class" id="imcClass"></p>
+        </div>
+
+        <div id="error" class="error" role="alert" hidden></div>
+      </div>
+      <footer class="footer-note">Valores com 2 casas decimais • Classificações: abaixo do peso, peso normal, sobrepeso, obesidade</footer>
+    </section>
+  </main>
+
+  <script type="module" src="app.js"></script>
+</body>
+</html>
